@@ -69,6 +69,7 @@ class App extends React.Component {
 | errorClass | String | - | Class for error messages |
 | errorStyle | Object | - | Inline styles for errors |
 | defaultImage | string | "" | Load this image while the component is rendering |
+| clearFiles | Boolean | false | Clear current picture/files stack (_ideally this will be triggered via state change from parent when file upload is finished in server side, But of course usage can be varied_) |
 
 
 ### Development

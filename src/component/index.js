@@ -40,6 +40,9 @@ class ReactImageUploadComponent extends React.Component {
     if(nextProps.defaultImage){
       this.setState({pictures: [nextProps.defaultImage]});
     }
+    if(nextProps.clearFiles){
+      this.clearFiles(nextProps.clearFiles);
+    }
   }
 
   /*
@@ -50,6 +53,18 @@ class ReactImageUploadComponent extends React.Component {
     return new RegExp(pattern, 'i').test(fileName);
   }
 
+  /*
+   Clear the picture stack from parent component when uploading is finished
+  */
+  clearFiles (clearFiles = false) {
+    if (clearFiles) {
+      this.setState({
+        pictures: this.props.defaultImage ? [this.props.defaultImage] : [],
+        files: []
+      });
+    }
+  }
+	
   /*
    Handle file validation
    */
@@ -260,7 +275,8 @@ ReactImageUploadComponent.defaultProps = {
   errorStyle: {},
   singleImage: false,
   onChange: () => {},
-  defaultImage: ""
+  defaultImage: "",
+  clearFiles: false
 };
 
 ReactImageUploadComponent.propTypes = {
@@ -288,7 +304,8 @@ ReactImageUploadComponent.propTypes = {
   errorClass: PropTypes.string,
   errorStyle: PropTypes.object,
   singleImage: PropTypes.bool,
-  defaultImage: PropTypes.string
+  defaultImage: PropTypes.string,
+  clearFiles: PropTypes.bool
 };
 
 export default ReactImageUploadComponent;

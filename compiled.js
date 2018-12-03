@@ -79,8 +79,8 @@ var ReactImageUploadComponent = function (_React$Component) {
       if (nextProps.defaultImage) {
         this.setState({ pictures: [nextProps.defaultImage] });
       }
-      if(nextProps.clearFiles){
-        this.clearFiles(nextProps.clearFiles);
+      if (nextProps.clearFiles) {
+        this.clearFilesFromStack(nextProps.clearFiles);
       }
     }
 
@@ -94,12 +94,16 @@ var ReactImageUploadComponent = function (_React$Component) {
       var pattern = '(' + this.props.imgExtension.join('|').replace(/\./g, '\\.') + ')$';
       return new RegExp(pattern, 'i').test(fileName);
     }
-  }, {
+
     /*
      Clear the picture stack from parent component when uploading is finished
     */
-    key: 'clearFiles',
-    value: function clearFiles (clearFiles = false) {
+
+  }, {
+    key: 'clearFilesFromStack',
+    value: function clearFilesFromStack() {
+      var clearFiles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
       if (clearFiles) {
         this.setState({
           pictures: this.props.defaultImage ? [this.props.defaultImage] : [],
@@ -107,7 +111,7 @@ var ReactImageUploadComponent = function (_React$Component) {
         });
       }
     }
-    
+
     /*
      Handle file validation
      */
@@ -328,7 +332,7 @@ var ReactImageUploadComponent = function (_React$Component) {
         { className: "fileUploader " + this.props.className, style: this.props.style },
         _react2.default.createElement(
           'div',
-          { className: 'fileContainer' },
+          { className: 'fileContainer', style: this.props.fileContainerStyle },
           this.renderIcon(),
           this.renderLabel(),
           _react2.default.createElement(
@@ -368,6 +372,7 @@ var ReactImageUploadComponent = function (_React$Component) {
 
 ReactImageUploadComponent.defaultProps = {
   className: '',
+  fileContainerStyle: {},
   buttonClassName: "",
   buttonStyles: {},
   withPreview: false,
@@ -395,6 +400,7 @@ ReactImageUploadComponent.defaultProps = {
 
 ReactImageUploadComponent.propTypes = {
   style: _propTypes2.default.object,
+  fileContainerStyle: _propTypes2.default.object,
   className: _propTypes2.default.string,
   onChange: _propTypes2.default.func,
   onDelete: _propTypes2.default.func,

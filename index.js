@@ -41,7 +41,7 @@ class ReactImageUploadComponent extends React.Component {
       this.setState({pictures: [nextProps.defaultImage]});
     }
     if(nextProps.clearFiles){
-      this.clearFiles(nextProps.clearFiles);
+      this.clearFilesFromStack(nextProps.clearFiles);
     }
   }
 
@@ -56,7 +56,7 @@ class ReactImageUploadComponent extends React.Component {
   /*
    Clear the picture stack from parent component when uploading is finished
   */
-  clearFiles (clearFiles = false) {
+ clearFilesFromStack (clearFiles = false) {
     if (clearFiles) {
       this.setState({
         pictures: this.props.defaultImage ? [this.props.defaultImage] : [],

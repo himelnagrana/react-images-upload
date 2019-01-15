@@ -1,18 +1,19 @@
 # Images uploader UI component
+<-- THIS IS NOT AN ORGINAL WORK!! THIS IS A FORKED AND MODIFIED VERSION OF https://github.com/JakeHartnell/react-images-upload -->
 Simple component for upload and validate (client side) images with preview built with React.js.
 This package use [react-flip-move](https://github.com/joshwcomeau/react-flip-move) for animate the file preview images.
 
 ## Installation
 
 ```bash
-npm install --save react-images-upload
+npm install --save react-images-upload-refactored
 ```
 
 ## Usage
 
 ```javascript
 import React from 'react';
-import ImageUploader from 'react-images-upload';
+import ImageUploader from 'react-images-upload-refactored';
 
 class App extends React.Component {
 

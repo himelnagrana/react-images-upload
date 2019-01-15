@@ -5,7 +5,7 @@
   "main": "compiled.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jakehartnell/react-images-upload"
+    "url": "https://github.com/himelnagrana/react-images-upload"
   },
   "dependencies": {
     "react": "^16.2.0",
